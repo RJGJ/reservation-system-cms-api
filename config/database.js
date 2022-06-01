@@ -2,13 +2,21 @@ const path = require("path");
 
 module.exports = ({ env }) => ({
   connection: {
-    client: "mysql",
+    // client: "postgres",
+    // connection: {
+      // host: env('DB_HOST'),
+      // port: env('DB_PORT'),
+      // database: env('DB_NAME'),
+      // user: env('DB_USER'),
+      // password: env('DB_PASSWORD'),
+      // ssl: env('DATABASE_SSL', false),
+    // },
+
+    client: 'sqlite',
     connection: {
-      host: "35.209.1.230",
-      port: 3306,
-      database: "reservation-system",
-      user: "reservation-system",
-      password: "reservation-system",
+    	filename: env('DATABASE_FILENAME', './db.sqlite')
     },
+    useNullAsDefault: true,
+    debug: true,
   },
 });
